@@ -8,12 +8,12 @@ Middleware cache provides cache management for [Macaron](https://github.com/go-m
 
 ## Getting Help
 
-- [API Reference](https://gowalker.org/github.com/go-macaron/cache)
+- [API Reference](https://gowalker.org/gitea.com/macaron/cache)
 - [Documentation](http://go-macaron.com/docs/middlewares/cache)
 
 ## Credits
 
-This package is a modified version of [beego/cache](https://github.com/astaxie/beego/tree/master/cache).
+This package is a modified version of [go-macaron/cache](github.com/go-macaron/cache).
 
 ## License
 

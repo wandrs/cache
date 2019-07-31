@@ -25,7 +25,7 @@ import (
 	"github.com/siddontang/ledisdb/ledis"
 	"gopkg.in/ini.v1"
 
-	"github.com/go-macaron/cache"
+	"gitea.com/macaron/cache"
 )
 
 var defaultHSetName = []byte("MacaronCache")
