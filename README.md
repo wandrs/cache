@@ -1,10 +1,10 @@
-# cache [![Build Status](https://travis-ci.org/go-macaron/cache.svg?branch=master)](https://travis-ci.org/go-macaron/cache) [![](http://gocover.io/_badge/github.com/go-macaron/cache)](http://gocover.io/github.com/go-macaron/cache)
+# cache
 
 Middleware cache provides cache management for [Macaron](https://github.com/go-macaron/macaron). It can use many cache adapters, including memory, file, Redis, Memcache, PostgreSQL, MySQL, Ledis and Nodb.
 
 ### Installation
 
-	go get github.com/go-macaron/cache
+	go get gitea.com/macaron/cache
 
 ## Getting Help
 
