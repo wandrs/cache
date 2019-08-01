@@ -21,8 +21,8 @@ import (
 	"time"
 
 	"github.com/Unknwon/com"
+	"github.com/go-redis/redis"
 	"gopkg.in/ini.v1"
-	"gopkg.in/redis.v2"
 
 	"gitea.com/macaron/cache"
 )
@@ -40,7 +40,7 @@ type RedisCacher struct {
 func (c *RedisCacher) Put(key string, val interface{}, expire int64) error {
 	key = c.prefix + key
 	if expire == 0 {
-		if err := c.c.Set(key, com.ToStr(val)).Err(); err != nil {
+		if err := c.c.Set(key, com.ToStr(val), 0).Err(); err != nil {
 			return err
 		}
 	} else {
@@ -48,7 +48,7 @@ func (c *RedisCacher) Put(key string, val interface{}, expire int64) error {
 		if err != nil {
 			return err
 		}
-		if err = c.c.SetEx(key, dur, com.ToStr(val)).Err(); err != nil {
+		if err = c.c.Set(key, com.ToStr(val), dur).Err(); err != nil {
 			return err
 		}
 	}
@@ -99,7 +99,7 @@ func (c *RedisCacher) Decr(key string) error {
 
 // IsExist returns true if cached value exists.
 func (c *RedisCacher) IsExist(key string) bool {
-	if c.c.Exists(c.prefix + key).Val() {
+	if c.c.Exists(c.prefix + key).Val() == 1 {
 		return true
 	}
 
@@ -148,7 +148,7 @@ func (c *RedisCacher) StartAndGC(opts cache.Options) error {
 		case "password":
 			opt.Password = v
 		case "db":
-			opt.DB = com.StrTo(v).MustInt64()
+			opt.DB = com.StrTo(v).MustInt()
 		case "pool_size":
 			opt.PoolSize = com.StrTo(v).MustInt()
 		case "idle_timeout":
