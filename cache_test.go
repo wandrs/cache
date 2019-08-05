@@ -22,7 +22,7 @@ import (
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"gopkg.in/macaron.v1"
+	"gitea.com/macaron/macaron"
 )
 
 func Test_Version(t *testing.T) {

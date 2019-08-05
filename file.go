@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/Unknwon/com"
-	"gopkg.in/macaron.v1"
+	"gitea.com/macaron/macaron"
 )
 
 // Item represents a cache item.

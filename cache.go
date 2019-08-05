@@ -19,7 +19,7 @@ package cache
 import (
 	"fmt"
 
-	"gopkg.in/macaron.v1"
+	"gitea.com/macaron/macaron"
 )
 
 const _VERSION = "0.3.0"

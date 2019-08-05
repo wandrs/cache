@@ -22,7 +22,7 @@ import (
 
 	"github.com/Unknwon/com"
 	. "github.com/smartystreets/goconvey/convey"
-	"gopkg.in/macaron.v1"
+	"gitea.com/macaron/macaron"
 
 	"gitea.com/macaron/cache"
 )
