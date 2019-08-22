@@ -20,8 +20,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Unknwon/com"
 	"github.com/go-redis/redis"
+	"github.com/unknwon/com"
 	"gopkg.in/ini.v1"
 
 	"gitea.com/macaron/cache"
@@ -99,7 +99,7 @@ func (c *RedisCacher) Decr(key string) error {
 
 // IsExist returns true if cached value exists.
 func (c *RedisCacher) IsExist(key string) bool {
-	if c.c.Exists(c.prefix + key).Val() == 1 {
+	if c.c.Exists(c.prefix+key).Val() == 1 {
 		return true
 	}
 

@@ -3,8 +3,7 @@ module gitea.com/macaron/cache
 go 1.11
 
 require (
-	gitea.com/macaron/macaron v1.3.3-0.20190803174002-53e005ff4827
-	github.com/Unknwon/com v0.0.0-20190321035513-0fed4efef755
+	gitea.com/macaron/macaron v1.3.3-0.20190821202302-9646c0587edb
 	github.com/bradfitz/gomemcache v0.0.0-20190329173943-551aad21a668
 	github.com/cupcake/rdb v0.0.0-20161107195141-43ba34106c76 // indirect
 	github.com/edsrzf/mmap-go v1.0.0 // indirect
@@ -23,6 +22,7 @@ require (
 	github.com/siddontang/rdb v0.0.0-20150307021120-fc89ed2e418d // indirect
 	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337
 	github.com/syndtr/goleveldb v1.0.0 // indirect
+	github.com/unknwon/com v0.0.0-20190804042917-757f69c95f3e
 	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80 // indirect
 	golang.org/x/sys v0.0.0-20190730183949-1393eb018365 // indirect
 	google.golang.org/appengine v1.6.1 // indirect

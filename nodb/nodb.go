@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Unknwon/com"
 	"github.com/lunny/nodb"
 	"github.com/lunny/nodb/config"
+	"github.com/unknwon/com"
 
 	"gitea.com/macaron/cache"
 )

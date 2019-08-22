@@ -20,9 +20,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Unknwon/com"
-	. "github.com/smartystreets/goconvey/convey"
 	"gitea.com/macaron/macaron"
+	. "github.com/smartystreets/goconvey/convey"
+	"github.com/unknwon/com"
 
 	"gitea.com/macaron/cache"
 )

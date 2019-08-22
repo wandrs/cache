@@ -26,8 +26,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Unknwon/com"
 	"gitea.com/macaron/macaron"
+	"github.com/unknwon/com"
 )
 
 // Item represents a cache item.
