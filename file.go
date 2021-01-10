@@ -26,7 +26,6 @@ import (
 	"sync"
 	"time"
 
-	"gitea.com/macaron/macaron"
 	"github.com/unknwon/com"
 )
 
@@ -191,7 +190,7 @@ func (c *FileCacher) StartAndGC(opt Options) error {
 	c.interval = opt.Interval
 
 	if !filepath.IsAbs(c.rootPath) {
-		c.rootPath = filepath.Join(macaron.Root, c.rootPath)
+		panic("rootPath must be an absolute path")
 	}
 	c.lock.Unlock()
 

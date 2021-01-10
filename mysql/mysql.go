@@ -23,7 +23,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"gitea.com/macaron/cache"
+	"gitea.com/go-chi/cache"
 )
 
 // MysqlCacher represents a mysql cache adapter implementation.

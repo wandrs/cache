@@ -24,7 +24,7 @@ import (
 	"github.com/lunny/nodb/config"
 	"github.com/unknwon/com"
 
-	"gitea.com/macaron/cache"
+	"gitea.com/go-chi/cache"
 )
 
 var (

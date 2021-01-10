@@ -18,8 +18,6 @@ package cache
 
 import (
 	"fmt"
-
-	"gitea.com/macaron/macaron"
 )
 
 const _VERSION = "0.3.0"
@@ -70,16 +68,14 @@ func prepareOptions(options []Options) Options {
 	if len(opt.Section) == 0 {
 		opt.Section = "cache"
 	}
-	sec := macaron.Config().Section(opt.Section)
-
 	if len(opt.Adapter) == 0 {
-		opt.Adapter = sec.Key("ADAPTER").MustString("memory")
+		opt.Adapter = "memory"
 	}
 	if opt.Interval == 0 {
-		opt.Interval = sec.Key("INTERVAL").MustInt(60)
+		opt.Interval = 60
 	}
 	if len(opt.AdapterConfig) == 0 {
-		opt.AdapterConfig = sec.Key("ADAPTER_CONFIG").MustString("data/caches")
+		opt.AdapterConfig = "data/caches"
 	}
 
 	return opt
@@ -93,19 +89,6 @@ func NewCacher(name string, opt Options) (Cache, error) {
 		return nil, fmt.Errorf("cache: unknown adapter '%s'(forgot to import?)", name)
 	}
 	return adapter, adapter.StartAndGC(opt)
-}
-
-// Cacher is a middleware that maps a cache.Cache service into the Macaron handler chain.
-// An single variadic cache.Options struct can be optionally provided to configure.
-func Cacher(options ...Options) macaron.Handler {
-	opt := prepareOptions(options)
-	cache, err := NewCacher(opt.Adapter, opt)
-	if err != nil {
-		panic(err)
-	}
-	return func(ctx *macaron.Context) {
-		ctx.Map(cache)
-	}
 }
 
 var adapters = make(map[string]Cache)

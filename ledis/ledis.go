@@ -25,7 +25,7 @@ import (
 	"github.com/unknwon/com"
 	"gopkg.in/ini.v1"
 
-	"gitea.com/macaron/cache"
+	"gitea.com/go-chi/cache"
 )
 
 var defaultHSetName = []byte("MacaronCache")
