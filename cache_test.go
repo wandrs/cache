@@ -56,7 +56,7 @@ func Test_Cacher(t *testing.T) {
 
 func testAdapter(opt Options) {
 	Convey("Basic operations", func() {
-		c, err := NewCacher(opt.Adapter, opt)
+		c, err := NewCacher(opt)
 		So(err, ShouldBeNil)
 
 		So(c.Put("uname", "unknwon", 1), ShouldBeNil)
@@ -84,7 +84,7 @@ func testAdapter(opt Options) {
 	})
 
 	Convey("Increase and decrease operations", func() {
-		c, err := NewCacher(opt.Adapter, opt)
+		c, err := NewCacher(opt)
 		So(err, ShouldBeNil)
 
 		So(c.Incr("404"), ShouldNotBeNil)

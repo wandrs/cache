@@ -20,11 +20,10 @@ import (
 	"testing"
 	"time"
 
-	"gitea.com/macaron/macaron"
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/unknwon/com"
 
-	"gitea.com/macaron/cache"
+	"gitea.com/go-chi/cache"
 )
 
 func Test_MemcacheCacher(t *testing.T) {
@@ -35,10 +34,9 @@ func Test_MemcacheCacher(t *testing.T) {
 		}
 
 		Convey("Basic operations", func() {
-			m := macaron.New()
-			m.Use(cache.Cacher(opt))
-
-			m.Get("/", func(c cache.Cache) {
+			c, err := cache.NewCacher(opt))
+			So(err, ShouldBeNil)
+			
 				So(c.Put("uname", "unknwon", 1), ShouldBeNil)
 				So(c.Put("uname2", "unknwon2", 1), ShouldBeNil)
 				So(c.IsExist("uname"), ShouldBeTrue)
@@ -58,19 +56,12 @@ func Test_MemcacheCacher(t *testing.T) {
 				So(c.Put("uname", "unknwon", 0), ShouldBeNil)
 				So(c.Flush(), ShouldBeNil)
 				So(c.Get("uname"), ShouldBeNil)
-			})
-
-			resp := httptest.NewRecorder()
-			req, err := http.NewRequest("GET", "/", nil)
-			So(err, ShouldBeNil)
-			m.ServeHTTP(resp, req)
 		})
 
 		Convey("Increase and decrease operations", func() {
-			m := macaron.New()
-			m.Use(cache.Cacher(opt))
+			c, err := cache.NewCacher(opt)
+			So(err, ShouldNotBeNil)
 
-			m.Get("/", func(c cache.Cache) {
 				So(c.Incr("404"), ShouldNotBeNil)
 				So(c.Decr("404"), ShouldNotBeNil)
 
@@ -91,12 +82,6 @@ func Test_MemcacheCacher(t *testing.T) {
 				So(com.StrTo(c.Get("int64").(string)).MustInt64(), ShouldEqual, 0)
 
 				So(c.Flush(), ShouldBeNil)
-			})
-
-			resp := httptest.NewRecorder()
-			req, err := http.NewRequest("GET", "/", nil)
-			So(err, ShouldBeNil)
-			m.ServeHTTP(resp, req)
 		})
 	})
 }

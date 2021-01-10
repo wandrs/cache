@@ -20,12 +20,6 @@ import (
 	"fmt"
 )
 
-const _VERSION = "0.3.0"
-
-func Version() string {
-	return _VERSION
-}
-
 // Cache is the interface that operates the cache data.
 type Cache interface {
 	// Put puts value into cache with key and expire time.
@@ -83,10 +77,10 @@ func prepareOptions(options []Options) Options {
 
 // NewCacher creates and returns a new cacher by given adapter name and configuration.
 // It panics when given adapter isn't registered and starts GC automatically.
-func NewCacher(name string, opt Options) (Cache, error) {
-	adapter, ok := adapters[name]
+func NewCacher(opt Options) (Cache, error) {
+	adapter, ok := adapters[opt.Adapter]
 	if !ok {
-		return nil, fmt.Errorf("cache: unknown adapter '%s'(forgot to import?)", name)
+		return nil, fmt.Errorf("cache: unknown adapter '%s'(forgot to import?)", opt.Adapter)
 	}
 	return adapter, adapter.StartAndGC(opt)
 }

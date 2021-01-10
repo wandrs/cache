@@ -1,9 +1,8 @@
-module gitea.com/macaron/cache
+module gitea.com/go-chi/cache
 
 go 1.11
 
 require (
-	gitea.com/macaron/macaron v1.3.3-0.20190821202302-9646c0587edb
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/bradfitz/gomemcache v0.0.0-20190329173943-551aad21a668
 	github.com/cupcake/rdb v0.0.0-20161107195141-43ba34106c76 // indirect
