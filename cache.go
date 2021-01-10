@@ -54,11 +54,7 @@ type Options struct {
 	Section string
 }
 
-func prepareOptions(options []Options) Options {
-	var opt Options
-	if len(options) > 0 {
-		opt = options[0]
-	}
+func prepareOptions(opt Options) Options {
 	if len(opt.Section) == 0 {
 		opt.Section = "cache"
 	}
@@ -78,6 +74,7 @@ func prepareOptions(options []Options) Options {
 // NewCacher creates and returns a new cacher by given adapter name and configuration.
 // It panics when given adapter isn't registered and starts GC automatically.
 func NewCacher(opt Options) (Cache, error) {
+	opt = prepareOptions(opt)
 	adapter, ok := adapters[opt.Adapter]
 	if !ok {
 		return nil, fmt.Errorf("cache: unknown adapter '%s'(forgot to import?)", opt.Adapter)

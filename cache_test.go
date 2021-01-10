@@ -26,14 +26,11 @@ func Test_Cacher(t *testing.T) {
 
 	Convey("Register invalid adapter", t, func() {
 		Convey("Adatper not exists", func() {
-			defer func() {
-				So(recover(), ShouldNotBeNil)
-			}()
-
 			var opt = Options{
 				Adapter: "fake",
 			}
-			NewCacher(opt.Adapter, opt)
+			_, err := NewCacher(opt)
+			So(err, ShouldNotBeNil)
 		})
 
 		Convey("Provider value is nil", func() {
