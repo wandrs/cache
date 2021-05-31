@@ -8,7 +8,7 @@ require (
 	github.com/onsi/gomega v1.13.0 // indirect
 	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337
 	github.com/unknwon/com v1.0.1
-	go.wandrs.dev/cache v0.0.0-00010101000000-000000000000
+	go.wandrs.dev/cache v0.0.0-20210531101526-aaa24f392b30
 	gopkg.in/ini.v1 v1.62.0
 )
 

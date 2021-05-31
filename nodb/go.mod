@@ -7,13 +7,11 @@ require (
 	github.com/lunny/log v0.0.0-20160921050905-7887c61bf0de // indirect
 	github.com/lunny/nodb v0.0.0-20160621015157-fc1ef06ad4af
 	github.com/mattn/go-sqlite3 v1.14.7 // indirect
-	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/siddontang/go-snappy v0.0.0-20140704025258-d8f7bb82a96d // indirect
-	github.com/smartystreets/goconvey v1.6.4
+	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337
 	github.com/syndtr/goleveldb v1.0.0 // indirect
 	github.com/unknwon/com v1.0.1
-	go.wandrs.dev/cache v0.0.0-00010101000000-000000000000
-	gopkg.in/yaml.v2 v2.2.8 // indirect
+	go.wandrs.dev/cache v0.0.0-20210531101526-aaa24f392b30
 )
 
 replace go.wandrs.dev/cache => ../
