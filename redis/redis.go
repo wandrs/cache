@@ -24,7 +24,7 @@ import (
 	"github.com/unknwon/com"
 	"gopkg.in/ini.v1"
 
-	"gitea.com/go-chi/cache"
+	"go.wandrs.dev/cache"
 )
 
 // RedisCacher represents a redis cache adapter implementation.

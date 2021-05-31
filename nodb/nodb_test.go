@@ -21,7 +21,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/unknwon/com"
 
-	"gitea.com/go-chi/cache"
+	"go.wandrs.dev/cache"
 )
 
 func Test_LedisCacher(t *testing.T) {
@@ -32,7 +32,7 @@ func Test_LedisCacher(t *testing.T) {
 		}
 
 		Convey("Basic operations", func() {
-			c, err := cache.Cacher(opt)
+			c, err := cache.NewCacher(opt)
 			So(err, ShouldBeNil)
 
 			So(c.Put("uname", "unknwon", 1), ShouldBeNil)

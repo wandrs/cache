@@ -156,7 +156,7 @@ func (c *MemoryCacher) startGC() {
 	}
 
 	if c.items != nil {
-		for key, _ := range c.items {
+		for key := range c.items {
 			c.checkRawExpiration(key)
 		}
 	}

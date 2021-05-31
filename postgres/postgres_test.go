@@ -15,13 +15,11 @@
 package cache
 
 import (
-	"net/http"
-	"net/http/httptest"
 	"testing"
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"gitea.com/go-chi/cache"
+	"go.wandrs.dev/cache"
 )
 
 func Test_PostgresCacher(t *testing.T) {
@@ -32,7 +30,7 @@ func Test_PostgresCacher(t *testing.T) {
 		}
 
 		Convey("Basic operations", func() {
-			c, err := cache.Cacher(opt))
+			c, err := cache.NewCacher(opt)
 			So(err, ShouldBeNil)
 
 			So(c.Put("uname", "unknwon", 1), ShouldBeNil)
@@ -59,7 +57,7 @@ func Test_PostgresCacher(t *testing.T) {
 		})
 
 		Convey("Increase and decrease operations", func() {
-			c, err := cache.Cacher(opt))
+			c, err := cache.NewCacher(opt)
 			So(err, ShouldNotBeNil)
 
 			// Escape GC at the momment.

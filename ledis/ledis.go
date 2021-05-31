@@ -20,12 +20,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/siddontang/ledisdb/config"
-	"github.com/siddontang/ledisdb/ledis"
+	"github.com/ledisdb/ledisdb/config"
+	"github.com/ledisdb/ledisdb/ledis"
 	"github.com/unknwon/com"
 	"gopkg.in/ini.v1"
 
-	"gitea.com/go-chi/cache"
+	"go.wandrs.dev/cache"
 )
 
 var defaultHSetName = []byte("MacaronCache")

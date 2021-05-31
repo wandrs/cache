@@ -23,7 +23,7 @@ import (
 
 	_ "github.com/lib/pq"
 
-	"gitea.com/go-chi/cache"
+	"go.wandrs.dev/cache"
 )
 
 // PostgresCacher represents a postgres cache adapter implementation.

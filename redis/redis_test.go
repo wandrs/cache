@@ -15,15 +15,13 @@
 package cache
 
 import (
-	"net/http"
-	"net/http/httptest"
 	"testing"
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/unknwon/com"
 
-	"gitea.com/go-chi/cache"
+	"go.wandrs.dev/cache"
 )
 
 func Test_RedisCacher(t *testing.T) {
@@ -34,9 +32,9 @@ func Test_RedisCacher(t *testing.T) {
 		}
 
 		Convey("Basic operations", func() {
-			c, err := cache.NewCacher(opt))
+			c, err := cache.NewCacher(opt)
 			So(err, ShouldBeNil)
-			
+
 			So(c.Put("uname", "unknwon", 1), ShouldBeNil)
 			So(c.Put("uname2", "unknwon2", 1), ShouldBeNil)
 			So(c.IsExist("uname"), ShouldBeTrue)
@@ -59,9 +57,9 @@ func Test_RedisCacher(t *testing.T) {
 		})
 
 		Convey("Increase and decrease operations", func() {
-			c, err := cache.Cacher(opt))
+			c, err := cache.NewCacher(opt)
 			So(err, ShouldNotBeNil)
-			
+
 			So(c.Incr("404"), ShouldNotBeNil)
 			So(c.Decr("404"), ShouldNotBeNil)
 
