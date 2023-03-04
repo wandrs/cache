@@ -23,10 +23,9 @@ import (
 )
 
 func Test_Cacher(t *testing.T) {
-
 	Convey("Register invalid adapter", t, func() {
 		Convey("Adatper not exists", func() {
-			var opt = Options{
+			opt := Options{
 				Adapter: "fake",
 			}
 			_, err := NewCacher(opt)
